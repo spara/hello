@@ -5,11 +5,11 @@ metadata:
 spec:
   source:
     git:
-      url: "https://gitlab.com/sophia.parafina/serverless.git"
+      url: "https://github.com/spara/hello.git"
       revision: master
   steps:
   - name: build-and-push
     image: "gcr.io/kaniko-project/executor:v0.6.0"
     args:
-    - "--dockerfile=/workspace/Dockerfile"
-    - "--destination=gcr.io/serverless-248400/commenter:v0.1"
+    - "--dockerfile=/workspace/app/Dockerfile"
+    - "--destination=gcr.io/serverless-248400/hello"
