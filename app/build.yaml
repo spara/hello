@@ -1,0 +1,15 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: hello
+spec:
+  source:
+    git:
+      url: "https://gitlab.com/sophia.parafina/serverless.git"
+      revision: master
+  steps:
+  - name: build-and-push
+    image: "gcr.io/kaniko-project/executor:v0.6.0"
+    args:
+    - "--dockerfile=/workspace/Dockerfile"
+    - "--destination=gcr.io/serverless-248400/commenter:v0.1"
